@@ -41,7 +41,7 @@ O Gitflow é um fluxo de trabalho legado do Git que no começo era uma estratég
 Fonte: [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ### Conceito do Gitflow
-
+Comparado ao desenvolvimento baseado em trocos, o Gitflow tem mais ramificações de vida longa e *commits* maiores. Sob este modelo, os desenvolvedores criam uma ramificação de recurso (desenvolvimento) e retardam o *merge* com a ramificação de tronco principal até que o recurso esteja pronto. Essas ramificações de recursos de longa duração exigem mais colaboração para fazer o *merge* e têm um risco maior de se desviarem do ramificação principal, possuindo, também, o risco de introduzir atualizações conflitantes.
 
 ### Funcionamento
 
