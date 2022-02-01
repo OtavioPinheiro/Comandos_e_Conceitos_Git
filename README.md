@@ -35,7 +35,7 @@ Os comandos do Git servem para ...
 ## Lista completa de comandos do Git
 
 
-## Git Flow
+## Gitflow
 
 
 # Bibliografia
