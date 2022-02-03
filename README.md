@@ -38,13 +38,18 @@ Os comandos do Git servem para ...
 ## Gitflow
 O Gitflow é um fluxo de trabalho legado do Git que no começo era uma estratégia inovadora e revolucionária para gerenciar ramificações do Git. O Gitflow perdeu popularidade para fluxos de trabalho baseados em troncos, que hoje são considerados práticas recomendadas para o desenvolvimento moderno e contínuo de *softwares* e práticas de DevOps. O Gitflow também pode ser difícil de usar com integração/implementação contínuas.
 
+Em suma, Gitflow é uma ideia abstrata do fluxo de trabalho do Git, ou seja, ele dita que tipos de ramificações configurar e como fazer o merge.
+
 Fonte: [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ### Conceito do Gitflow
 Comparado ao desenvolvimento baseado em trocos, o Gitflow tem mais ramificações de vida longa e *commits* maiores. Sob este modelo, os desenvolvedores criam uma ramificação de recurso (desenvolvimento) e retardam o *merge* com a ramificação de tronco principal até que o recurso esteja pronto. Essas ramificações de recursos de longa duração exigem mais colaboração para fazer o *merge* e têm um risco maior de se desviarem do ramificação principal, possuindo, também, o risco de introduzir atualizações conflitantes.
 
-### Funcionamento
+O Gitflow pode ser usado para projetos que têm um ciclo de lançamento agendado e para a prática recomendada de DevOps de entrega contínua. Este fluxo de trabalho não adiciona novos conceitos ou comandos além do necessário para o fluxo de trabalho com ramificação. O que ele faz é atribuir funções bem específicas para diferentes ramificações e definir quando elas devem interagir. Além das ramificações de recurso (desenvolvimento), também se faz uso das ramificações individuais para preparar, manter e registrar lançamentos.
 
+### Funcionamento
+#### Ramificações de desenvolvimento e principal
+Para começar a explicar como funciona o fluxo de trabalho do Gitflow é necessário explicar as duas *branches* (ramificações) mais importantes, a *develop* e a *main* (ou *master*, ou *origin*, etc).
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
