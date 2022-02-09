@@ -42,16 +42,23 @@ Em suma, Gitflow é uma ideia abstrata do fluxo de trabalho do Git, ou seja, ele
 
 Fonte: [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
-### Conceito do Gitflow
+## Conceito do Gitflow
 Comparado ao desenvolvimento baseado em trocos, o Gitflow tem mais ramificações de vida longa e *commits* maiores. Sob este modelo, os desenvolvedores criam uma ramificação de recurso (desenvolvimento) e retardam o *merge* com a ramificação de tronco principal até que o recurso esteja pronto. Essas ramificações de recursos de longa duração exigem mais colaboração para fazer o *merge* e têm um risco maior de se desviarem do ramificação principal, possuindo, também, o risco de introduzir atualizações conflitantes.
 
 O Gitflow pode ser usado para projetos que têm um ciclo de lançamento agendado e para a prática recomendada de DevOps de entrega contínua. Este fluxo de trabalho não adiciona novos conceitos ou comandos além do necessário para o fluxo de trabalho com ramificação. O que ele faz é atribuir funções bem específicas para diferentes ramificações e definir quando elas devem interagir. Além das ramificações de recurso (desenvolvimento), também se faz uso das ramificações individuais para preparar, manter e registrar lançamentos.
 
-### Funcionamento
-#### Ramificações de desenvolvimento(*develop*) e principal(*main*)
+## Funcionamento
+### Ramificações de desenvolvimento(*develop*) e principal(*main*)
 Para começar a explicar como funciona o fluxo de trabalho do Gitflow é necessário explicar as duas *branches* (ramificações) mais importantes, a *develop* e a *main* (ou *master*, ou *origin*, etc). Basicamente, a *branch main* é a ramificação principal e é aonde todo o código principal da aplicação se encontra. Já a *branch develop*, inicialmente, é uma cópia da *branch main* que é designada para receber atualizações da aplicação, ou seja, é a partir da *branch develop* é que os desenvolvedores irão criar novas *branches*, realizar o desenvolvimento da aplicação, e, quando concluído o desenvolvimento, realizar o *merge*, em palavras, unir as novas *branches* que foram criadas à *branch develop*. A estratégia de possuir essas duas ramificações, *main* e *develop*, é para evitar que conflitos prejudiquem o código na *branch main*, que pode estar se comunicando com uma esteira ou sendo homologada e distribuída para produção. Estando a *branch develop* sempre a frente da *branch main*, os conflitos sempre irão acontecer na *branch develop* e, assim que forem resolvidos, é que a *develop* será mergeada com a *branch main* e, por sua vez, irá estar disponível para a homologação e produção. O Gitflow utiliza essa estratégia de desenvolvimento.
 
 ![Fluxo de trabalho Gitflow](https://wac-cdn.atlassian.com/dam/jcr:a13c18d6-94f3-4fc4-84fb-2b8f1b2fd339/01%20How%20it%20works.svg?cdnVersion=199)
+
+**FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+
+### Ramificações de recurso(*feature*)
+Cada novo recurso(*feature*) deve ter a sua própria *branch*, que posteriormente será enviada (mergeada) para a *branch develop*, que no caso é a *branch* pai. As novas *features* não devem nunca interagir diretamente com a *branch main*, ou seja, não se deve realizar um *merge* das novas *features* para a *branch main*.
+
+![Fluxo de criação de branches features](https://wac-cdn.atlassian.com/dam/jcr:34c86360-8dea-4be4-92f7-6597d4d5bfae/02%20Feature%20branches.svg?cdnVersion=199)
 
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
