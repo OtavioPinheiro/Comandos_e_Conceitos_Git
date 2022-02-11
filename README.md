@@ -47,6 +47,27 @@ Comparado ao desenvolvimento baseado em trocos, o Gitflow tem mais ramificaçõe
 
 O Gitflow pode ser usado para projetos que têm um ciclo de lançamento agendado e para a prática recomendada de DevOps de entrega contínua. Este fluxo de trabalho não adiciona novos conceitos ou comandos além do necessário para o fluxo de trabalho com ramificação. O que ele faz é atribuir funções bem específicas para diferentes ramificações e definir quando elas devem interagir. Além das ramificações de recurso (desenvolvimento), também se faz uso das ramificações individuais para preparar, manter e registrar lançamentos.
 
+## Instalação
+Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow funciona em MacOs, Linux e Windows e para instala-lo podemos executar no terminal (*shell*) o comando:
+| Comando | OS |
+|---------|----|
+|`brew install git-flow-avh`| MacOs[^MacOs] |
+| `apt-get install git-flow`| Linux |
+| `wget -q -O - --no-check-certificate https://raw.github.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh install stable | bash` | Windows[^Windows] |
+
+**FONTE:**[Cheatsheet do git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
+
+[^MacOs]: é necessário ter o Homebrew instalado.
+[^Windows]: em algumas versões do Git for Windows, o git-flow já vem instalado por padrão.
+
+## Comandos
+| Comando | Funcionamento |
+|---------|---------------|
+| `git flow init` | Inicia o git flow dentro de um repositório existente. Assim que executar o comando, irá aparecer algumas perguntas que precisam ser respondidas para que o git flow saiba qual a nomeclatura que você usará para as suas *branches*, o recomendável é usar o padrão já definido pelo git flow. |
+| `git flow feature start minhaFuncionalidade` | Cria uma nova *branch* de funcionalidade (*feat*), denominada, neste exemplo, de "minhaFuncionalidade", a partir da *branch develop* e faz o *checkout* para a nova *branch* |
+| `git flow feature publish minhaFuncionalidade` | Faz um *push* para o servidor remoto, ou seja, publica a *branch*, especificada no comando, para um servidor remoto. |
+| `git flow feature pull minhaFuncionalidade` | Faz um *pull* do servidor remoto, ou seja, baixa o código da *branch*, especificada no comando, de um servidor remoto. |
+
 ## Funcionamento
 ### Ramificações de desenvolvimento(*develop*) e principal(*main*)
 Para começar a explicar como funciona o fluxo de trabalho do Gitflow é necessário explicar as duas *branches* (ramificações) mais importantes, a *develop* e a *main* (ou *master*, ou *origin*, etc). Basicamente, a *branch main* é a ramificação principal e é aonde todo o código principal da aplicação se encontra. Já a *branch develop*, inicialmente, é uma cópia da *branch main* que é designada para receber atualizações da aplicação, ou seja, é a partir da *branch develop* é que os desenvolvedores irão criar novas *branches*, realizar o desenvolvimento da aplicação, e, quando concluído o desenvolvimento, realizar o *merge*, em palavras, unir as novas *branches* que foram criadas à *branch develop*. A estratégia de possuir essas duas ramificações, *main* e *develop*, é para evitar que conflitos prejudiquem o código na *branch main*, que pode estar se comunicando com uma esteira ou sendo homologada e distribuída para produção. Estando a *branch develop* sempre a frente da *branch main*, os conflitos sempre irão acontecer na *branch develop* e, assim que forem resolvidos, é que a *develop* será mergeada com a *branch main* e, por sua vez, irá estar disponível para a homologação e produção. O Gitflow utiliza essa estratégia de desenvolvimento.
@@ -61,6 +82,8 @@ Cada novo recurso(*feature*) deve ter a sua própria *branch*, que posteriorment
 ![Fluxo de criação de branches features](https://wac-cdn.atlassian.com/dam/jcr:34c86360-8dea-4be4-92f7-6597d4d5bfae/02%20Feature%20branches.svg?cdnVersion=199)
 
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+
+
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
