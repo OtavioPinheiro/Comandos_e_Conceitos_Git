@@ -53,7 +53,7 @@ Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow fu
 |---------|----|
 |`brew install git-flow-avh`| MacOs[^MacOs] |
 | `apt-get install git-flow`| Linux |
-| `wget -q -O - --no-check-certificate https://raw.github.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh install stable | bash` | Windows[^Windows] |
+| `wget -q -O - --no-check-certificate https://raw.github.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh install stable \| bash` | Windows[^Windows] |
 
 **FONTE:**[Cheatsheet do git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
