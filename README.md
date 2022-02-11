@@ -49,13 +49,15 @@ O Gitflow pode ser usado para projetos que têm um ciclo de lançamento agendado
 
 ## Instalação
 Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow funciona em MacOs, Linux e Windows e para instala-lo podemos executar no terminal (*shell*) o comando:
+
 | Comando | OS |
 |---------|----|
 |`brew install git-flow-avh`| MacOs[^MacOs] |
 | `apt-get install git-flow`| Linux |
 | `wget -q -O - --no-check-certificate https://raw.github.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh install stable \| bash` | Windows[^Windows] |
 
-**FONTE:**[Cheatsheet do git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
+
+**FONTE:** [Cheatsheet do git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
 [^MacOs]: é necessário ter o Homebrew instalado.
 [^Windows]: em algumas versões do Git for Windows, o git-flow já vem instalado por padrão.
