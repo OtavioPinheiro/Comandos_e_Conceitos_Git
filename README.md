@@ -69,6 +69,9 @@ Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow fu
 | `git flow feature start minhaFuncionalidade` | Cria uma nova *branch* de funcionalidade (*feat*), denominada, neste exemplo, de "minhaFuncionalidade", a partir da *branch develop* e faz o *checkout* para a nova *branch* |
 | `git flow feature publish minhaFuncionalidade` | Faz um *push* para o servidor remoto, ou seja, publica a *branch*, especificada no comando, para um servidor remoto. |
 | `git flow feature pull minhaFuncionalidade` | Faz um *pull* do servidor remoto, ou seja, baixa o código da *branch*, especificada no comando, de um servidor remoto. |
+| `git flow release start RELEASE [BASE]` | Criar um *release*, uma *branch* que irá para produção, baseado na *branch develop* |
+
+**FONTE:** [CheatSheet do git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
 ## Funcionamento
 ### Ramificações de desenvolvimento(*develop*) e principal(*main*)
