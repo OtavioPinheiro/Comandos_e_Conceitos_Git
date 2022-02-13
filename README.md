@@ -34,6 +34,8 @@ Os comandos do Git servem para ...
 
 ## Lista completa de comandos do Git
 
+| Comando | Funcionamento |
+|---------|---------------|
 
 ## Gitflow
 O Gitflow é um fluxo de trabalho legado do Git que no começo era uma estratégia inovadora e revolucionária para gerenciar ramificações do Git. O Gitflow perdeu popularidade para fluxos de trabalho baseados em troncos, que hoje são considerados práticas recomendadas para o desenvolvimento moderno e contínuo de *softwares* e práticas de DevOps. O Gitflow também pode ser difícil de usar com integração/implementação contínuas.
@@ -83,13 +85,20 @@ Para começar a explicar como funciona o fluxo de trabalho do Gitflow é necess�
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ### Ramificações de recurso(*feature*)
-Cada novo recurso(*feature*) deve ter a sua própria *branch*, que posteriormente será enviada (mergeada) para a *branch develop*, que no caso é a *branch* pai. As novas *features* não devem nunca interagir diretamente com a *branch main*, ou seja, não se deve realizar um *merge* das novas *features* para a *branch main*.
+Cada novo recurso(*feature*) deve ter a sua própria *branch*, que posteriormente será enviada (mergeada) para a *branch develop*, que no caso é a *branch* pai. As novas *features* não devem nunca interagir diretamente com a *branch main*, ou seja, não se deve realizar um *merge* das novas *features* diretamente para a *branch main*.
 
 ![Fluxo de criação de branches features](https://wac-cdn.atlassian.com/dam/jcr:34c86360-8dea-4be4-92f7-6597d4d5bfae/02%20Feature%20branches.svg?cdnVersion=199)
 
+Comparando o Git tradicional com o Git flow, em termos de comandos a serem usados, temos:
+| Git | Git flow |
+|-----|----------|
+| `git checkout develop` <br> `git checkout -b feature_branch` | `git flow feature start feature_branch` |
+
+Logo podemos concluir que, em termos de comandos utilizados, o Git Flow possui a vantagem de resolver a criação de uma nova *branch* de funcionalidade em apenas um comando, porém com o Git tradicional, pelo fato de realizar a mesma tarefa em mais passos, o torna mais versátil.
+
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
-
+### 
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
