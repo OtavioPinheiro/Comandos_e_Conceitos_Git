@@ -90,6 +90,7 @@ Cada novo recurso(*feature*) deve ter a sua própria *branch*, que posteriorment
 ![Fluxo de criação de branches features](https://wac-cdn.atlassian.com/dam/jcr:34c86360-8dea-4be4-92f7-6597d4d5bfae/02%20Feature%20branches.svg?cdnVersion=199)
 
 Comparando o Git tradicional com o Git flow, em termos de comandos a serem usados, temos:
+
 | Git | Git flow |
 |-----|----------|
 | `git checkout develop` <br> `git checkout -b feature_branch` | `git flow feature start feature_branch` |
