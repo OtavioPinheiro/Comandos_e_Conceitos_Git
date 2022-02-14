@@ -99,8 +99,20 @@ Logo podemos concluir que, em termos de comandos utilizados, o Git Flow possui a
 
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
-### 
+### Finalizando uma ramificação de recurso(*feature*)
+Quando concluído o desenvolvimento da ramificação (*branch*) de recurso (*feature*), o próximo passo é realizar o *merge* (mesclar) da *branch feature* com a *branch develop*. Para realizar esse processo utilizando o Git flow, executamos o seguinte comando `git flow feature finish feature_branch`. Em comparação com o Git tradicional temos:
+
+| Git | Git flow |
+|-----|----------|
+| `git checkout develop` <br> `git merge feature_branch` | `git flow feature finish feature_branch` |
+
+**FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+
+### Ramificações de lançamento(*release*)
+
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
 2. [Training Github](https://training.github.com/downloads/pt_BR/github-git-cheat-sheet/)
+3. [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+4. [CheatSheet do git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
