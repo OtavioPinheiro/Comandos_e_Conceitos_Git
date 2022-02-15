@@ -109,7 +109,11 @@ Quando concluído o desenvolvimento da ramificação (*branch*) de recurso (*fea
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ### Ramificações de lançamento(*release*)
+Quando a *branch develop* possuir os recursos necessários estipulados para um lançamento (*release*), devemos criar uma nova *branch* de *release* a partir da *develop*. Como via de regra, após a criação da *branch release*, nenhum recurso (feature) pode ser adicionado, apenas atualizações de segurança, geração de documentos e outras tarefas relacionadas ao lançamento devem ir nesta ramificação.
 
+**FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+
+![Branch Release](https://wac-cdn.atlassian.com/dam/jcr:8f00f1a4-ef2d-498a-a2c6-8020bb97902f/03%20Release%20branches.svg?cdnVersion=212)
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
