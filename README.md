@@ -109,11 +109,16 @@ Quando concluído o desenvolvimento da ramificação (*branch*) de recurso (*fea
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ### Ramificações de lançamento(*release*)
-Quando a *branch develop* possuir os recursos necessários estipulados para um lançamento (*release*), devemos criar uma nova *branch* de *release* a partir da *develop*. Como via de regra, após a criação da *branch release*, nenhum recurso (feature) pode ser adicionado, apenas atualizações de segurança, geração de documentos e outras tarefas relacionadas ao lançamento devem ir nesta ramificação.
+Quando a *branch develop* possuir os recursos necessários estipulados para um lançamento (*release*), devemos criar uma nova *branch* de *release* a partir da *develop*. Como via de regra, após a criação da *branch release*, nenhum recurso (*feature*) pode ser adicionado, apenas atualizações de segurança, geração de documentos e outras tarefas relacionadas ao lançamento devem ir nesta ramificação. Quando estiver pronta para ser lançada, a ramificação *release* passa por *merge* para a ramificação *main* e é marcada com o número da versão. Ela também deve passar por *merge* de volta para a ramificação *develop*, que pode ter progredido desde que o lançamento foi iniciado. O uso da ramificação dedicada ao preparo de lançamentos permite o trabalho paralelo, ou seja, enquanto uma equipe aperfeiçoa o lançamento atual, a outra equipe continua a trabalhar nos recursos para o próximo lançamento. Os comandos utilizados para realizar as tarefas, com e sem gitflow:
 
-**FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+| Git | Git flow | Função |
+|-----|----------|--------|
+| `git checkout develop`<br>`git checkout -b release/0.1.0` | `git flow release start 0.1.0` | Criar *branch release* e atribuir a versão. |
+| `git checkout main`<br>`git merge release/0.1.0` | `git flow release finish '0.1.0'` | Finalizar *branch release*. |
 
 ![Branch Release](https://wac-cdn.atlassian.com/dam/jcr:8f00f1a4-ef2d-498a-a2c6-8020bb97902f/03%20Release%20branches.svg?cdnVersion=212)
+
+**FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
