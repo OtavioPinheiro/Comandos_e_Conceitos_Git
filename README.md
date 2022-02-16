@@ -120,6 +120,18 @@ Quando a *branch develop* possuir os recursos necessários estipulados para um l
 
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
+### Ramificação de correção(*hotfix*)
+As ramificações de manutenção ou correção (*hotfix*) são usadas para corrigir com rapidez lançamentos de produção. As ramificações de *hotfix* se parecem muito com ramificações de *release* e de *feature*, a diferença é que a *branch hotfix* é criada a partir da *main* ao invés da *develop*. Esta é a única ramificação que deve ser bifurcada direto da ramificação *main*. Assim que a correção for concluída a *branch hotfix* deve ser mergeada na *main* e na *develop* ou, ao invés da *develop*, realizar o *merge* na *branch release* atual. Ainda, a *branch main* deve ser marcada com o número da versão atualizada. A vantagem de se usar a *branch hotfix* é que o time de desenvolvimento poderá resolver problemas sem ter que interromper o fluxo de trabalho ou esperar o próximo ciclo de lançamento. Os comandos Git e Git flow para realizar a tarefa de criação das *hotfix* e, posteriormente, finaliza-las, são:
+
+| Git | Git flow | Função |
+|-----|----------|--------|
+| `git checkout main`<br>`git checkout -b hotfix_branch`  | `git flow hotfix start hotfix_branch` | Mudar para a *branch main* e criar a *branch hotfix* |
+| `git checkout main`<br>`git merge hotfix_branch`<br>`git checkout develop`<br>`git merge hotfix_branch`<br>`git branch -D hotfix_branch` | `git flow hotfix finish hotfix_branch` | Mudar para a *branch main*, realizar o *merge*, mudar para a *develop*, realizar o *merge* e deletar a *branch hotfix*. |
+
+![Branch Hotfix](https://wac-cdn.atlassian.com/dam/jcr:cc0b526e-adb7-4d45-874e-9bcea9898b4a/04%20Hotfix%20branches.svg?cdnVersion=212)
+
+**FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
 2. [Training Github](https://training.github.com/downloads/pt_BR/github-git-cheat-sheet/)
