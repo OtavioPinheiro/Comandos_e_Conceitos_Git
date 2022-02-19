@@ -4,6 +4,8 @@ O objetivo desse projeto é simplesmente abordar os comandos mais usados do Git 
 # Sumário
 - [O que é Git?](#o-que-é-git)
 - [Comandos do Git](#comandos-do-git)
+- [Assinando commits](#assinando-commits)
+- [Bibliografia](#bibliografia)
 
 # O que é Git?
 Git é o sistema de controle de versão distribuído moderno mais usado no mundo. Git é um projeto de código aberto e com uma manutenção ativa. Foi desenvolvido em 2005 por Linus Trovalds, o famoso criador do kernel do Sistema Operacional Linux. Um número impressionante de projetos de software depende do Git para o controle de versão, incluindo projetos de código aberto e projetos comerciais. O Git funciona e se integra muito bem com diversos SOs (Sistemas Operacionais) e com diversas IDEs (Ambiente de Desenvolvimento Integrado). As vantagens do Git sobre os demais controladores de versões são:
@@ -18,6 +20,7 @@ Git é o sistema de controle de versão distribuído moderno mais usado no mundo
 Os comandos do Git servem para ...
 
 ## Comandos mais usados do Git
+
 ### Comandos usados para a configuração
 | Comando | Para que serve? |
 |---------|-----------------|
@@ -76,7 +79,7 @@ Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow fu
 
 **FONTE:** [CheatSheet do git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
-## Funcionamento
+## Funcionamento do Git flow
 ### Ramificações de desenvolvimento(*develop*) e principal(*main*)
 Para começar a explicar como funciona o fluxo de trabalho do Gitflow é necessário explicar as duas *branches* (ramificações) mais importantes, a *develop* e a *main* (ou *master*, ou *origin*, etc). Basicamente, a *branch main* é a ramificação principal e é aonde todo o código principal da aplicação se encontra. Já a *branch develop*, inicialmente, é uma cópia da *branch main* que é designada para receber atualizações da aplicação, ou seja, é a partir da *branch develop* é que os desenvolvedores irão criar novas *branches*, realizar o desenvolvimento da aplicação, e, quando concluído o desenvolvimento, realizar o *merge*, em palavras, unir as novas *branches* que foram criadas à *branch develop*. A estratégia de possuir essas duas ramificações, *main* e *develop*, é para evitar que conflitos prejudiquem o código na *branch main*, que pode estar se comunicando com uma esteira ou sendo homologada e distribuída para produção. Estando a *branch develop* sempre a frente da *branch main*, os conflitos sempre irão acontecer na *branch develop* e, assim que forem resolvidos, é que a *develop* será mergeada com a *branch main* e, por sua vez, irá estar disponível para a homologação e produção. O Gitflow utiliza essa estratégia de desenvolvimento.
 
@@ -131,6 +134,9 @@ As ramificações de manutenção ou correção (*hotfix*) são usadas para corr
 ![Branch Hotfix](https://wac-cdn.atlassian.com/dam/jcr:cc0b526e-adb7-4d45-874e-9bcea9898b4a/04%20Hotfix%20branches.svg?cdnVersion=212)
 
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+
+# Assinando *commits*
+
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
