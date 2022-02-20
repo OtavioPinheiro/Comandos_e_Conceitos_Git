@@ -143,10 +143,59 @@ As ramificações de manutenção ou correção (*hotfix*) são usadas para corr
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 # Assinando *commits*
+Antes de falar sobre como assinar os *commits*, irei explicar do que se trata assinar um *commit*. Assinar um *commit* nada mais é do que realizar uma assinatura eletrônica criptografada, para que o autor do *commit* possa ser identificado, ou seja, permite que outras pessoas tenham a certeza sobre quem realizou o *commit*. Para realizar essa tarefa normalmente usa-se o GPG ou o S/MIME.
 
+ ## GPG
+GPG é uma acrônimo para [*GNU Privacy Guard*](https://gnupg.org/), trata-se de um software livre de criptografia e é uma alternativa ao PGP da empresa Symantec [Wikipedia](https://pt.wikipedia.org/wiki/GNU_Privacy_Guard). O GnuPG (GPG) é uma implementação completa e gratuita do padrão OpenPGP, definido pela [RFC4880](https://www.ietf.org/rfc/rfc4880.txt). O GPG permite a criptografia e a assinatura de dados e comunicações, possuindo um sistema de gerenciamento de chaves versátil, juntamente com módulos de acesso para todos os tipos de diretórios de chaves públicas. É uma ferramenta de linha de comando com recursos para fácil integração com outros aplicativos. O GnuPG também oferece suporte para S/MIME e Secure Shell (ssh). [GnuPG org](https://gnupg.org/).
+
+Também vale citar o Gpg4win, que é uma versão do GnuPG para Windows com uma ferramenta de menu de contexto, um gerenciador de criptografia e um plug-in do Outlook para enviar e receber e-mails PGP/MIME padrão. [GnuPG org](https://gnupg.org/).
+
+O GPG usa criptografia assimétrica, logo faz uso de uma chave pública e outra privada, sendo que a pública tem o objetivo de cifrar (criptografar) a informação que é endereçada a um receptor, portanto é a chave que o receptor (dono das chaves) e emissor da mensagem compartilham de modo seguro. Já a chave privada não deve ser compartilhada com ninguém, apenas o receptor da mensagem deve possui-la para conseguir descriptografar (decifrar) a mensagem recebida. A criptografia assimétrica oferece suporte à assinatura digital, que autentica a identidade do destinatário e garante que a mensagem não seja violada em trânsito.
+
+Para saber mais sobre criptografia:
+- [Criptografia simétrica x assimétrica: qual é a diferença? Por Valter de Souza](https://blog.mailfence.com/pt/criptografia-simetrica-x-assimetrica-qual-e-a-diferenca/)
+- [PKI – Public key infrastructure](https://www.gta.ufrj.br/grad/07_2/delio/Criptografiaassimtrica.html)
+- [Criptografia Assimétrica - Segurança da Informação - Dicionário de Informática](https://www.youtube.com/watch?v=GeSnN8Tt04U)
+- [Entendendo Conceitos Básicos de CRIPTOGRAFIA | Parte 1/2](https://www.youtube.com/watch?v=CcU5Kc_FN_4)
+- [Entendendo Conceitos Básicos de CRIPTOGRAFIA | Parte 2/2](https://www.youtube.com/watch?v=HCHqtpipwu4)
+
+ ## S/MIME
+S/MIME, ou Secure/Multipurpose Internet Mail Extensions, é uma tecnologia que permite criptografar e-mails. O S/MIME é baseado em criptografia assimétrica para proteger seus e-mails contra acessos indesejados. Além disso, ele permite assinar digitalmente seus e-mails para atestar que você é o remetente legítimo da mensagem, tornando-se uma arma eficiente contra ataques de phishing. [Fonte: GlobalSign - O que é o S/MIME e como ele funciona?](https://www.globalsign.com/pt-br/blog/what-is-s-mime)
+
+## Mãos na massa
+Nos passos descritos a seguir, utilizaremos o GPG para realizar a criptografia, mas é possível utilizar o S/MIME caso queira.
+
+### Instalando o GPG
+Para instalar o GPG no Linux basta executar os comandos:
+```
+sudo apt-get update
+sudo apt-get install gnupg
+```
+
+No Windows será necessário fazer o download do Gpg4win, disponível em: [gpg4win](https://www.gpg4win.org/)
+
+Caso queira, poderá deixar todas as opções marcadas quando estiver instalando o gpg4win (e.g. Kleopatra, GPA, etc).
+
+### Realizando a criptografia
+Após ter instalado o GPG no Sistema Operacional (SO), siga os passos, sempre precionando a tecla enter após cada passo:
+
+1. Execute o comando `gpg --gen-key`;
+2. Em seguida, escolha o tipo de chave que deseja gerar, sendo que a opção 1 é a opação padrão, chave usada para assinar e cifrar arquivos com algoritmo RSA;
+3. Escolha o tamanho da chave, em bits, sendo que o ideal é 4096 bits;
+4. Defina por quanto tempo a chave ficará válida;
+5. Por fim, defina uma senha forte (alfanumérica, caractéres especiais, com mais de 12 caractéres, etc)
+
+Enquanto a chave está sendo gerada, faça movimentos aleatórios com o mouse e pressionar teclas aleatórias do teclado para ajudar o computador na geração de números randômicos.
+
+**Obs.1:** Caso esteja utilizando Windows, é possível realizar esse mesmo processo pelo terminal do windows ou pelo git bash. Caso não queira realizar esse processo pelo bash ou terminal, use o software Kleopatra, baixado junto com o gpg4win, e gere as chaves por lá, em Arquivo > Novo par de chaves > Criar um par de chaves OpenPGP pessoal, depois siga as mesmas recomandações citadas acima.
+
+**Obs.2:** Dependendo da versão do GPG que esteja utilizando, o comando para gerar uma chave GPG é `gpg --default-new-key-algo rsa4096 --gen-key`
+
+**Obs.3:** Para listar as chaves criadas use o comando `gpg --list-secret-keys --keyid-format=long`
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
 2. [Training Github](https://training.github.com/downloads/pt_BR/github-git-cheat-sheet/)
 3. [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 4. [CheatSheet do git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
+5. [GPG](https://gnupg.org/)
