@@ -4,6 +4,13 @@ O objetivo desse projeto é simplesmente abordar os comandos mais usados do Git 
 # Sumário
 - [O que é Git?](#o-que-é-git)
 - [Comandos do Git](#comandos-do-git)
+  - [Git flow](#gitflow)
+    - [Conceito](#conceito-do-gitflow)
+    - [Funcionamento](#funcionamento-do-git-flow)
+    - [Branch develop e main](#ramificações-de-desenvolvimentodevelop-e-principalmain)
+    - [Branch feature](#ramificações-de-recursofeature)
+    - [Branch release](#ramificações-de-lançamentorelease)
+    - [Branch hotfix](#ramificação-de-correçãohotfix)
 - [Assinando commits](#assinando-commits)
 - [Bibliografia](#bibliografia)
 
@@ -47,12 +54,12 @@ Em suma, Gitflow é uma ideia abstrata do fluxo de trabalho do Git, ou seja, ele
 
 Fonte: [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
-## Conceito do Gitflow
+### Conceito do Gitflow
 Comparado ao desenvolvimento baseado em trocos, o Gitflow tem mais ramificações de vida longa e *commits* maiores. Sob este modelo, os desenvolvedores criam uma ramificação de recurso (desenvolvimento) e retardam o *merge* com a ramificação de tronco principal até que o recurso esteja pronto. Essas ramificações de recursos de longa duração exigem mais colaboração para fazer o *merge* e têm um risco maior de se desviarem do ramificação principal, possuindo, também, o risco de introduzir atualizações conflitantes.
 
 O Gitflow pode ser usado para projetos que têm um ciclo de lançamento agendado e para a prática recomendada de DevOps de entrega contínua. Este fluxo de trabalho não adiciona novos conceitos ou comandos além do necessário para o fluxo de trabalho com ramificação. O que ele faz é atribuir funções bem específicas para diferentes ramificações e definir quando elas devem interagir. Além das ramificações de recurso (desenvolvimento), também se faz uso das ramificações individuais para preparar, manter e registrar lançamentos.
 
-## Instalação
+### Instalação
 Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow funciona em MacOs, Linux e Windows e para instala-lo podemos executar no terminal (*shell*) o comando:
 
 | Comando | OS |
@@ -67,7 +74,7 @@ Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow fu
 [^MacOs]: é necessário ter o Homebrew instalado.
 [^Windows]: em algumas versões do Git for Windows, o git-flow já vem instalado por padrão.
 
-## Comandos
+### Comandos
 | Comando | Funcionamento |
 |---------|---------------|
 | `git flow init` | Inicia o git flow dentro de um repositório existente. Assim que executar o comando, irá aparecer algumas perguntas que precisam ser respondidas para que o git flow saiba qual a nomeclatura que você usará para as suas *branches*, o recomendável é usar o padrão já definido pelo git flow. |
@@ -79,7 +86,7 @@ Para usar o Gitflow é necessário ter instalado o Git na máquina. O Gitflow fu
 
 **FONTE:** [CheatSheet do git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
-## Funcionamento do Git flow
+### Funcionamento do Git flow
 ### Ramificações de desenvolvimento(*develop*) e principal(*main*)
 Para começar a explicar como funciona o fluxo de trabalho do Gitflow é necessário explicar as duas *branches* (ramificações) mais importantes, a *develop* e a *main* (ou *master*, ou *origin*, etc). Basicamente, a *branch main* é a ramificação principal e é aonde todo o código principal da aplicação se encontra. Já a *branch develop*, inicialmente, é uma cópia da *branch main* que é designada para receber atualizações da aplicação, ou seja, é a partir da *branch develop* é que os desenvolvedores irão criar novas *branches*, realizar o desenvolvimento da aplicação, e, quando concluído o desenvolvimento, realizar o *merge*, em palavras, unir as novas *branches* que foram criadas à *branch develop*. A estratégia de possuir essas duas ramificações, *main* e *develop*, é para evitar que conflitos prejudiquem o código na *branch main*, que pode estar se comunicando com uma esteira ou sendo homologada e distribuída para produção. Estando a *branch develop* sempre a frente da *branch main*, os conflitos sempre irão acontecer na *branch develop* e, assim que forem resolvidos, é que a *develop* será mergeada com a *branch main* e, por sua vez, irá estar disponível para a homologação e produção. O Gitflow utiliza essa estratégia de desenvolvimento.
 
