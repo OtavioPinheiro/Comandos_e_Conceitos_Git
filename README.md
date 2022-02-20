@@ -177,7 +177,7 @@ No Windows será necessário fazer o download do Gpg4win, disponível em: [gpg4w
 
 Caso queira, poderá deixar todas as opções marcadas quando estiver instalando o gpg4win (e.g. Kleopatra, GPA, etc).
 
-### Realizando a criptografia
+### Gerando par de chaves GPG
 Após ter instalado o GPG no Sistema Operacional (SO), siga os passos, sempre precionando a tecla enter após cada passo:
 
 1. Execute o comando `gpg --gen-key`;
@@ -188,11 +188,58 @@ Após ter instalado o GPG no Sistema Operacional (SO), siga os passos, sempre pr
 
 Enquanto a chave está sendo gerada, faça movimentos aleatórios com o mouse e pressionar teclas aleatórias do teclado para ajudar o computador na geração de números randômicos.
 
-**Obs.1:** Caso esteja utilizando Windows, é possível realizar esse mesmo processo pelo terminal do windows ou pelo git bash. Caso não queira realizar esse processo pelo bash ou terminal, use o software Kleopatra, baixado junto com o gpg4win, e gere as chaves por lá, em Arquivo > Novo par de chaves > Criar um par de chaves OpenPGP pessoal, depois siga as mesmas recomandações citadas acima.
+**FONTE:** [GPG para mim e para você](https://imasters.com.br/devsecops/gpg-para-mim-e-para-voce)
+
+**Obs.1:** Caso esteja utilizando Windows, é possível realizar esse mesmo processo pelo terminal do windows ou pelo git bash. Caso não queira realizar esse processo pelo bash ou terminal, use o software Kleopatra, baixado junto com o gpg4win, e gere as chaves por lá, em `Arquivo > Novo par de chaves > Criar um par de chaves OpenPGP pessoal`, depois siga as mesmas recomandações citadas acima.
 
 **Obs.2:** Dependendo da versão do GPG que esteja utilizando, o comando para gerar uma chave GPG é `gpg --default-new-key-algo rsa4096 --gen-key`
 
 **Obs.3:** Para listar as chaves criadas use o comando `gpg --list-secret-keys --keyid-format=long`
+
+### Adicionando chaves GPG
+Após o par de chaves ter sido criado, podemos adicionar a chave pública ao servidor git (github, gitlab, etc) para que quando um *commit* seja enviado, ele consiga identificar o autor do *commit*. 
+
+Para encontrar o chave pública gerada:
+
+1. Liste as chaves criadas com o comando `gpg --list-secret-keys --keyid-format=long`
+2. Do *output* retornado do 1º passo copie o ID da chave, algo similar a:
+```
+$ gpg --list-secret-keys --keyid-format=long
+/Users/hubot/.gnupg/secring.gpg
+------------------------------------
+sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+uid                          Hubot 
+ssb   4096R/42B317FD4BA89E7A 2016-03-10
+```
+O ID nesse exemplo é `3AA5C34371567BD2`
+3. Execute o comando `gpg --armor --export <ID da chave>`. Substituindo o campo entre <> pelo ID da chave pública.
+4. Copie sua chave GPG, que inicia com `-----BEGIN PGP PUBLIC KEY BLOCK-----` e termina com `-----END PGP PUBLIC KEY BLOCK-----`.
+
+Com a chave GPG copiada, vá até as configurações da sua conta nessas plataformas de hospedagem de código-fonte e VCS (Version Control System - Sistema de controle de versão), encontre a sessão que trata de chaves GPG e adicione a chave pública. Para mais detalhes do processo:
+
+- [GitHub](https://docs.github.com/pt/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+- [GitLab](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/)
+
+Feito isso, associe a GPG com o Git local.
+
+1. Copie o ID da chave, usando os mesmos passos descritos anteriormente, caso não tenha copiado o ID para um arquivo de texto.
+2. Execute o comando `git config --global user.signingkey <ID da chave GPG>`.
+
+### Assinando *commits*
+Para realizar um *commit* assinado basta realizar:
+
+```
+git commit -S -m "My commit msg"
+```
+
+Caso não queira ter que digitar a flag `-S` toda vez que realizar um *commit*, é possível tornar a assinatura de *commits* padrão em todos os *commits* que serão realizados por você, por meio do comando
+
+```
+git config --global commit.gpgsign true
+```
+
+### Extras
+É possível revogar e excluir as chaves GPG adicionadas a estas plaformas online de controle de versão (GitHub, GitLab, etc), basta acessar a sessão que trata das chaves GPG e escolher a opção revogar (*revoke*) ou exlcuir, normalmente simbolizada pelo ícone de lixeira ao lado das epsecificações da chave.
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
