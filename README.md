@@ -37,12 +37,16 @@ Os comandos do Git servem para ...
 ## Comandos mais usados do Git
 
 ### Comandos usados para a configuração
+Os comandos a seguir são usados para configurar alguns parâmetros usados pelo Git, como nome e email. É possível configurar outros parâmetros, mas esses serão abordados na [lista completa de comandos](#lista-completa-de-comandos-do-git)
+
 | Comando | Para que serve? |
 |---------|-----------------|
 | `git config --global user.name <nome>` | Configura o nome que você quer que esteja ligado às suas transações de *commit* |
 | `git config --global user.email <e-mail>` | Configura e-mail que você quer que esteja ligado às suas transações de *commit* |
 
 ### Criando repositórios
+Os comandos a seguir são usados para criar um projeto (repositório ou diretório) local usando Git como controlador de versão e clonando (baixando) um projeto que use o Git como controlador de versão.
+
 | Comando | Para que serve? |
 |---------|-----------------|
 | `git init <nome-do-projeto>`[^git-init] | Cria um novo repositório local com o nome especificado |
@@ -51,11 +55,23 @@ Os comandos do Git servem para ...
 [^git-init]: O comando `git init` também pode ser usado quando o repositório já está criado. Neste caso basta abrir o terminal dentro da pasta (repositório) e executar o comando. Uma pasta (repositório) .git será criada.
 
 ### Refatorando arquivos com Git
+Os comandos descritos abaixo são usados para refatorar (editar ou excluir) arquivos versionados pelo Git.
+
 | Comando | Para que serve? |
 |---------|-----------------|
 | `git rm <arquivo>` | Remove o arquivo de diretório de trabalho |
 | `git rm --cached <arquivo>` | Remove o arquivo do controle de versão mas preserva o arquivo localmente |
 | `git mv <arquivo-original> <arquivo-renomeado>` | Muda o nome do arquivo e o prepara para o commit |
+
+### Suprimir monitoramento
+É possível ignorar diretórios (pastas) e arquivos temporários, como arquivos de registro (*logs*). Para fazer com que o Git ignore alguns arquivos, é necessário criar um arquivo chamado de `.gitignore`. Neste arquivo é possível especificar o caminho da pasta (diretório) ou arquivo a ser ignorado. Há uma seção na qual falarei sobre o gitignore e a forma de escrita para ignorar arquivos e pastas.
+
+| Comando | Para que serve? |
+|---------|-----------------|
+| `git ls-files --others --ignored --exclude-standard` | Lista todos os arquivos ignorados no projeto |
+
+## .gitignore
+O .gitignore é um arquivo específico do Git que faz com que o controlador de versão ignore os arquivos e diretórios especificados.
 
 ## Lista completa de comandos do Git
 
@@ -163,7 +179,7 @@ As ramificações de manutenção ou correção (*hotfix*) são usadas para corr
 # Assinando *commits*
 Antes de falar sobre como assinar os *commits*, irei explicar do que se trata assinar um *commit*. Assinar um *commit* nada mais é do que realizar uma assinatura eletrônica criptografada, para que o autor do *commit* possa ser identificado, ou seja, permite que outras pessoas tenham a certeza sobre quem realizou o *commit*. Para realizar essa tarefa normalmente usa-se o GPG ou o S/MIME.
 
- ## GPG
+## GPG
 GPG é uma acrônimo para [*GNU Privacy Guard*](https://gnupg.org/), trata-se de um software livre de criptografia e é uma alternativa ao PGP da empresa Symantec [Wikipedia](https://pt.wikipedia.org/wiki/GNU_Privacy_Guard). O GnuPG (GPG) é uma implementação completa e gratuita do padrão OpenPGP, definido pela [RFC4880](https://www.ietf.org/rfc/rfc4880.txt). O GPG permite a criptografia e a assinatura de dados e comunicações, possuindo um sistema de gerenciamento de chaves versátil, juntamente com módulos de acesso para todos os tipos de diretórios de chaves públicas. É uma ferramenta de linha de comando com recursos para fácil integração com outros aplicativos. O GnuPG também oferece suporte para S/MIME e Secure Shell (ssh). [GnuPG org](https://gnupg.org/).
 
 Também vale citar o Gpg4win, que é uma versão do GnuPG para Windows com uma ferramenta de menu de contexto, um gerenciador de criptografia e um plug-in do Outlook para enviar e receber e-mails PGP/MIME padrão. [GnuPG org](https://gnupg.org/).
@@ -177,7 +193,7 @@ Para saber mais sobre criptografia:
 - [Entendendo Conceitos Básicos de CRIPTOGRAFIA | Parte 1/2](https://www.youtube.com/watch?v=CcU5Kc_FN_4)
 - [Entendendo Conceitos Básicos de CRIPTOGRAFIA | Parte 2/2](https://www.youtube.com/watch?v=HCHqtpipwu4)
 
- ## S/MIME
+## S/MIME
 S/MIME, ou Secure/Multipurpose Internet Mail Extensions, é uma tecnologia que permite criptografar e-mails. O S/MIME é baseado em criptografia assimétrica para proteger seus e-mails contra acessos indesejados. Além disso, ele permite assinar digitalmente seus e-mails para atestar que você é o remetente legítimo da mensagem, tornando-se uma arma eficiente contra ataques de phishing. [Fonte: GlobalSign - O que é o S/MIME e como ele funciona?](https://www.globalsign.com/pt-br/blog/what-is-s-mime)
 
 ## Mãos na massa
