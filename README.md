@@ -11,7 +11,14 @@ O objetivo desse projeto é simplesmente abordar os comandos mais usados do Git 
     - [Branch feature](#ramificações-de-recursofeature)
     - [Branch release](#ramificações-de-lançamentorelease)
     - [Branch hotfix](#ramificação-de-correçãohotfix)
+- [Adicionando chaves SSH](#adicionando-chaves-ssh)
 - [Assinando commits](#assinando-commits)
+  - [GPG](#gpg)
+  - [S/MIME](#smime)
+  - [Mãos na massa](#mãos-na-massa)
+- [Fluxo de trabalho GIT](#fluxo-de-trabalho-do-git)
+  - [Pull Request](#pull-request)
+  - [Code Review](#code-review)
 - [Bibliografia](#bibliografia)
 
 # O que é Git?
@@ -42,6 +49,13 @@ Os comandos do Git servem para ...
 | `git clone <url-do-projeto>` | Baixa um projeto e seu histórico de versão inteiro |
 
 [^git-init]: O comando `git init` também pode ser usado quando o repositório já está criado. Neste caso basta abrir o terminal dentro da pasta (repositório) e executar o comando. Uma pasta (repositório) .git será criada.
+
+### Refatorando arquivos com Git
+| Comando | Para que serve? |
+|---------|-----------------|
+| `git rm <arquivo>` | Remove o arquivo de diretório de trabalho |
+| `git rm --cached <arquivo>` | Remove o arquivo do controle de versão mas preserva o arquivo localmente |
+| `git mv <arquivo-original> <arquivo-renomeado>` | Muda o nome do arquivo e o prepara para o commit |
 
 ## Lista completa de comandos do Git
 
@@ -143,6 +157,9 @@ As ramificações de manutenção ou correção (*hotfix*) são usadas para corr
 
 **FONTE:** [Bitbucket](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
+# Adicionando chaves SSH
+
+
 # Assinando *commits*
 Antes de falar sobre como assinar os *commits*, irei explicar do que se trata assinar um *commit*. Assinar um *commit* nada mais é do que realizar uma assinatura eletrônica criptografada, para que o autor do *commit* possa ser identificado, ou seja, permite que outras pessoas tenham a certeza sobre quem realizou o *commit*. Para realizar essa tarefa normalmente usa-se o GPG ou o S/MIME.
 
@@ -240,6 +257,12 @@ git config --global commit.gpgsign true
 
 ### Extras
 É possível revogar e excluir as chaves GPG adicionadas a estas plaformas online de controle de versão (GitHub, GitLab, etc), basta acessar a sessão que trata das chaves GPG e escolher a opção revogar (*revoke*) ou exlcuir, normalmente simbolizada pelo ícone de lixeira ao lado das epsecificações da chave.
+
+## Fluxo de trabalho do Git
+
+### *Pull Request*
+
+### *Code Review*
 
 # Bibliografia
 1. [Git](https://git-scm.com/docs/git#_git_commands)
